@@ -21,8 +21,9 @@ public class Activity {
     private String activityType;
     private String status;
 
-    @ManyToOne
+    //@ManyToOne
+    @OneToOne
     private Users users;
-    @ManyToOne
+    @OneToOne
     private Property property;
 }

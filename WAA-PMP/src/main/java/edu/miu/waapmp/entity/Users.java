@@ -26,8 +26,8 @@ public class Users {
 
 //    @OneToMany(mappedBy = "users")
 //    private List<Role> roles;
-
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
-    private List<Activity> activities;
+//
+//    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+//    private List<Activity> activities;
 
 }
