@@ -21,13 +21,13 @@ public class Users {
     private String email;
     private boolean isActive;
     private String password;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Property> properties;
 
 //    @OneToMany(mappedBy = "users")
 //    private List<Role> roles;
 
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
     private List<Activity> activities;
 
 }

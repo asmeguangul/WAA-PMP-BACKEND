@@ -23,7 +23,7 @@ public class Property {
     private int viewCount;
     private String location;
 
-    @ManyToMany(mappedBy = "properties")
+    @ManyToMany(mappedBy = "properties", cascade = CascadeType.ALL)
     private List<Users> users;
 
     @OneToMany(mappedBy = "property")
