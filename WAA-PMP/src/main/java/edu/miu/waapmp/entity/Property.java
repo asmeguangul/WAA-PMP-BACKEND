@@ -25,9 +25,9 @@ public class Property {
 
     @ManyToMany(mappedBy = "properties", cascade = CascadeType.ALL)
     private List<Users> users;
-
-    @OneToMany(mappedBy = "property")
-    private List<Activity> activities;
+//
+//    @OneToMany(mappedBy = "property")
+//    private List<Activity> activities;
 
 
 }
