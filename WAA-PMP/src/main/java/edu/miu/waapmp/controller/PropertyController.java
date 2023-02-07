@@ -16,9 +16,19 @@ public class PropertyController {
         this.propertyService = propertyService;
     }
 
+
     @GetMapping
-    public List<Property> getAllProperties(){
-        return propertyService.getAllProperties();
+    public List<Property> getAllProperties(
+            @RequestParam(value = "userID", required = false) Integer userId,
+            @RequestParam(value = "price", required = false) Long price,
+            @RequestParam(value = "location", required = false) String location,
+            @RequestParam(value = "rooms", required = false) Integer rooms,
+            @RequestParam(value = "propertyType", required = false) String propertyType,
+            @RequestParam(value = "homeType", required = false) String homeType) {
+        if(userId != null) return propertyService.getAllPropertiesOfOwner(userId);
+        else if (price != null || location !=null || rooms != null || propertyType != null || homeType != null)
+            return propertyService.getAllPropertiesByQuery(price, location, rooms, propertyType, homeType);
+        else return propertyService.getAllProperties();
     }
 
     @GetMapping("/{id}")

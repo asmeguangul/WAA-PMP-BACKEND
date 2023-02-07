@@ -2,6 +2,7 @@ package edu.miu.waapmp.controller;
 
 import edu.miu.waapmp.entity.Activity;
 import edu.miu.waapmp.service.ActivityService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,12 +17,17 @@ public class ActivityController {
         this.activityService = activityService;
     }
 
-
+    //@GetMapping
+    //public List<Activity> getAllActivities(){
+    //    return activityService.getAllActivities();
+    //}
     @GetMapping
-    public List<Activity> getAllActivities(){
-        return activityService.getAllActivities();
+    public List<Activity> getAllActivities(@RequestParam (value = "last10", required = false) String last10) {
+        System.out.println(last10);
+        if(last10 == null) return activityService.getAllActivities();
+        else if(last10.equals("last10")) return activityService.getLast10Rented();
+        else return (List<Activity>) ResponseEntity.ok("Param is not value1");
     }
-
     @GetMapping("/{id}")
     public Activity getActivityById(@PathVariable int id){
         return activityService.getActivityById(id);

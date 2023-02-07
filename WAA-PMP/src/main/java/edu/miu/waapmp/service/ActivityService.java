@@ -12,4 +12,5 @@ public interface ActivityService {
     public void deleteActivity(int id);
     public void updateActivity(int id, Activity activity);
 
+    List<Activity> getLast10Rented();
 }
