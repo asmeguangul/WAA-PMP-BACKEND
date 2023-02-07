@@ -40,4 +40,9 @@ public class ActivityServiceImp implements ActivityService {
     public void updateActivity(int id, Activity activity) {
       activityRepo.save(activity);
     }
+
+    @Override
+    public List<Activity> getLast10Rented() {
+        return activityRepo.getLast10Rented();
+    }
 }

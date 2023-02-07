@@ -18,6 +18,7 @@ public class PropertyServiceImp implements PropertyService {
 
     @Override
     public List<Property> getAllProperties() {
+
         return propertyRepo.findAll();
     }
 
@@ -39,5 +40,15 @@ public class PropertyServiceImp implements PropertyService {
     @Override
     public void updateProperty(int id, Property property) {
     propertyRepo.save(property);
+    }
+
+    @Override
+    public List<Property> getAllPropertiesOfOwner(Integer userId) {
+        return propertyRepo.getAllPropertiesOfOwner(userId);
+    }
+
+    @Override
+    public List<Property> getAllPropertiesByQuery(Long price, String location, Integer rooms, String propertyType, String homeType) {
+        return propertyRepo.getAllPropertiesByQuery(price, location, rooms, propertyType, homeType);
     }
 }

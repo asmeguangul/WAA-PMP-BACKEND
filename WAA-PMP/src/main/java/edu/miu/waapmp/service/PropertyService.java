@@ -12,4 +12,7 @@ public interface PropertyService {
     public void deleteProperty(int id);
     public void updateProperty(int id, Property property);
 
+    List<Property> getAllPropertiesOfOwner(Integer userId);
+
+    List<Property> getAllPropertiesByQuery(Long price, String location, Integer rooms, String propertyType, String homeType);
 }

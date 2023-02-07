@@ -20,6 +20,7 @@ public class Users {
     private String name;
     private String email;
     private boolean isActive;
+    //private String role
     private String password;
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Property> properties;
