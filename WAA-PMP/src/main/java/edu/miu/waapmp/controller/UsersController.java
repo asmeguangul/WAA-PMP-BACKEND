@@ -1,13 +1,16 @@
 package edu.miu.waapmp.controller;
 
+import edu.miu.waapmp.entity.Property;
 import edu.miu.waapmp.entity.Users;
 import edu.miu.waapmp.service.UsersService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Properties;
 
 @RestController
 @RequestMapping("api/v1/users")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsersController {
 
     private final UsersService usersService;
@@ -24,6 +27,11 @@ public class UsersController {
     @GetMapping("{id}")
     public Users getUsers(@PathVariable int id){
         return usersService.getUserById(id);
+    }
+
+    @GetMapping("{id}/favorite")
+    public List<Property> getFavoritePropertiesById(@PathVariable int id){
+        return usersService.getFavoritePropertiesById();
     }
 
     @PostMapping

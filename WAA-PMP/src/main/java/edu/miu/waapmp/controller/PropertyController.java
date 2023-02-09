@@ -8,6 +8,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/properties")
+//@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin
 public class PropertyController {
     private final PropertyService propertyService;
 
@@ -35,6 +37,16 @@ public class PropertyController {
 
     public Property getPropertyById(@PathVariable int id){
         return propertyService.getPropertyById(id);
+    }
+
+    @GetMapping("/rent")
+    public List<Property> getRentProperties(){
+        return propertyService.getRentProperties();
+    }
+
+    @GetMapping("/sale")
+    public List<Property> getSaleProperties(){
+        return propertyService.getSaleProperties();
     }
 
     @PostMapping

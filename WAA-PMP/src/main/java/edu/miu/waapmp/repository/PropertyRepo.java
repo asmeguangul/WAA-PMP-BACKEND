@@ -3,15 +3,23 @@ package edu.miu.waapmp.repository;
 import edu.miu.waapmp.entity.Property;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface PropertyRepo extends JpaRepository<Property, Integer> {
+public interface PropertyRepo extends CrudRepository<Property, Integer> {
     //@Query("SELECT p FROM Property p JOIN p.users u WHERE u.id = :userId AND p. = 'OWNER'")
+
     @Query("SELECT p FROM Property p")
     List<Property> getAllPropertiesOfOwner(Integer userId);
+
+    @Query("SELECT p FROM Property p where p.propertyType='rent'")
+    List<Property> getRentProperties();
+
+    @Query("SELECT p FROM Property p where p.propertyType='sale'")
+    List<Property> getSaleProperties();
 
 //    @Query("SELECT p\n" +
 //        "FROM Property p\n" +

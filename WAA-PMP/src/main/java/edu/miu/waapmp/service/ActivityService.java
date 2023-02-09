@@ -13,4 +13,6 @@ public interface ActivityService {
     public void updateActivity(int id, Activity activity);
 
     List<Activity> getLast10Rented();
+    List<Activity> getLastActivities();
+    List<Activity> getAllApplied();
 }

@@ -19,7 +19,17 @@ public class PropertyServiceImp implements PropertyService {
     @Override
     public List<Property> getAllProperties() {
 
-        return propertyRepo.findAll();
+        return (List<Property> ) propertyRepo.findAll();
+    }
+
+    @Override
+    public List<Property> getRentProperties() {
+        return propertyRepo.getRentProperties();
+    }
+
+    @Override
+    public List<Property> getSaleProperties() {
+        return propertyRepo.getSaleProperties();
     }
 
     @Override

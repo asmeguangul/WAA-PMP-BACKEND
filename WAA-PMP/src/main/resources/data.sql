@@ -42,26 +42,33 @@ VALUES (13,'rent',1000,3,'Apartment', 0, 'des moine');
 Insert INTO Property(id, property_type, price, number_of_rooms, home_type, view_count, location)
 VALUES (14,'sale',170000,3,'home', 0, 'des moine');
 
+--                 ROLE TABLE
 
+INSERT INTO role(id, role)
+values(1,'CUSTOMER');
+INSERT INTO role (id, role)
+values(2,'OWNER');
+INSERT INTO role(id, role)
+values(3,'ADMIN');
 --             USERS TABLE
 --
-INSERT INTO Users(id,email, is_active,name,password)
-values(1,'jhon@gmail.com',true, 'Jhon', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2');
+INSERT INTO Users(id,email, is_active,name,password,role_id)
+values(1,'jhon@gmail.com',true, 'Jhon', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2',1);
 
-INSERT INTO Users(id,email, is_active,name,password)
-values(2,'mike@gmail.com',true, 'Mike', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2');
+INSERT INTO Users(id,email, is_active,name,password,role_id)
+values(2,'mike@gmail.com',true, 'Mike', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2',1);
 
-INSERT INTO Users(id,email, is_active,name,password)
-values(3,'math@gmail.com',false, 'Math', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2');
+INSERT INTO Users(id,email, is_active,name,password,role_id)
+values(3,'math@gmail.com',false, 'Math', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2',2);
 
-INSERT INTO Users(id,email, is_active,name,password)
-values(4,'josh@gmail.com',true, 'Josh', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2');
+INSERT INTO Users(id,email, is_active,name,password,role_id)
+values(4,'josh@gmail.com',true, 'Josh', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2',2);
 
-INSERT INTO Users(id,email, is_active,name,password)
-values(5,'washington@gmail.com',false, 'Washington', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2');
+INSERT INTO Users(id,email, is_active,name,password,role_id)
+values(5,'washington@gmail.com',false, 'Washington', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2',3);
 
-INSERT INTO Users(id,email, is_active,name,password)
-values(6,'denzel@gmail.com',true, 'Denziel', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2');
+INSERT INTO Users(id,email, is_active,name,password,role_id)
+values(6,'denzel@gmail.com',true, 'Denziel', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2',3);
 
 
 
@@ -89,14 +96,7 @@ INSERT INTO Activity(id, Activity_type, date, status, property_id,users_id)
 values(12,'sale','04,02,2023','applied',14,1 );
 
 --
--- --                 ROLE TABLE
---
--- INSERT INTO Role(id, role)
--- values(1,'customer');
--- INSERT INTO Role(id, role)
--- values(2,'customer');
--- INSERT INTO Role(id, role)
--- values(3,'customer');
+
 --
 -- INSERT INTO Role(id, role)
 -- values(4,'Admin');
@@ -117,3 +117,9 @@ values(12,'sale','04,02,2023','applied',14,1 );
 -- -
 
 --             USERS_PROPERTIES - we
+INSERT INTO users_properties(users_id, properties_id)
+values(1,1);
+INSERT INTO users_properties(users_id, properties_id)
+values(1,2);
+INSERT INTO users_properties(users_id, properties_id)
+values(2,2);

@@ -1,5 +1,6 @@
 package edu.miu.waapmp.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,9 +21,11 @@ public class Users {
     private String name;
     private String email;
     private boolean isActive;
-    //private String role
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Role role;
     private String password;
     @ManyToMany(cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Property> properties;
 
 //    @OneToMany(mappedBy = "users")

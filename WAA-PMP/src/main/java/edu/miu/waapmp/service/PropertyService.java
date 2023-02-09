@@ -7,6 +7,9 @@ import java.util.List;
 public interface PropertyService {
 
     public List<Property> getAllProperties();
+    public List<Property> getRentProperties();
+    public List<Property> getSaleProperties();
+
     public Property getPropertyById(int id);
     public void saveProperty(Property property);
     public void deleteProperty(int id);

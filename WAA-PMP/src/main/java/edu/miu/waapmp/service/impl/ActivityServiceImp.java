@@ -45,4 +45,14 @@ public class ActivityServiceImp implements ActivityService {
     public List<Activity> getLast10Rented() {
         return activityRepo.getLast10Rented();
     }
+
+    @Override
+    public List<Activity> getLastActivities() {
+        return activityRepo.getLastActivities();
+    }
+
+    @Override
+    public List<Activity> getAllApplied() {
+        return activityRepo.getAllApplied();
+    }
 }

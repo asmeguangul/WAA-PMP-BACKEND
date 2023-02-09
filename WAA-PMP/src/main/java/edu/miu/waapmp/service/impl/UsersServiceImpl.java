@@ -1,5 +1,6 @@
 package edu.miu.waapmp.service.impl;
 
+import edu.miu.waapmp.entity.Property;
 import edu.miu.waapmp.entity.Users;
 import edu.miu.waapmp.repository.UsersRepo;
 import edu.miu.waapmp.service.UsersService;
@@ -19,7 +20,7 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public List<Users> getAllUsers() {
-        return usersRepo.findAll();
+        return (List<Users>)usersRepo.findAll();
     }
 
     @Override
@@ -40,5 +41,10 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public void updateUser(int id, Users users) {
        usersRepo.save(users);
+    }
+
+    @Override
+    public List<Property> getFavoritePropertiesById() {
+        return usersRepo.getFavoritePropertiesById();
     }
 }

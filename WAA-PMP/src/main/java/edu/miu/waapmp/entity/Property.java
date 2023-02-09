@@ -1,5 +1,6 @@
 package edu.miu.waapmp.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class Property {
     private String location;
 
     @ManyToMany(mappedBy = "properties", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Users> users;
 //
 //    @OneToMany(mappedBy = "property")
